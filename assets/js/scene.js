@@ -163,8 +163,8 @@
     const t = reduce ? 0 : clock.getElapsedTime();
     const intro = (still || reduce) ? 1 : ease(Math.min(t / 3.2, 1));
     ss += (sp - ss) * .06; tx += (mx - tx) * .04; ty += (my - ty) * .04;
-    const wide = innerWidth > 1024, base = wide ? .8 : .55;
-    hr.position.x = (wide ? 8.9 : 0) - ss * 26; hr.position.y = (wide ? 0 : 3.5) + ss * 22;
+    const wide = innerWidth > 1024, base = wide ? .8 : Math.min(.58, innerWidth / 720);
+    hr.position.x = (wide ? 8.9 : 0) - ss * 26; hr.position.y = (wide ? 0 : 25.2 * (.5 - 215 / innerHeight)) + ss * 22;
     hr.scale.setScalar(base * (.45 + .55 * intro));
     hr.rotation.y = t * .09 + tx * .7 + ss * 3 + (1 - intro) * 3.2; hr.rotation.x = ty * .25 + .12;
 

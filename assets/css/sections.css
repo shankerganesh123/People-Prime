@@ -102,4 +102,3 @@ dialog.vmodal::backdrop { background: rgb(3 15 28 / .88); -webkit-backdrop-filte
 .cf-3 { top: 63%; right: -1rem; animation-delay: -1.5s; } .cf-3 .ic { background: rgb(var(--c-brand-400) / .2); color: rgb(var(--c-brand-300)); }
 .cf-2 { bottom: .5rem; right: auto; left: 18%; }
 .hero .container-x { position: relative; z-index: 1; }
-@media (max-width: 1023px) { .hero::before { content: ''; position: absolute; inset: 0; z-index: 0; background: rgb(var(--c-ink) / .5); } }

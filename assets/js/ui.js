@@ -59,7 +59,7 @@
   };
   if (still) { document.documentElement.classList.add('still'); document.body.classList.remove('loading'); $$('.letterbox').forEach((b) => (b.style.display = 'none')); }
   if (still) { const y = +(location.search.match(/[?&]y=(\d+)/) || [])[1]; if (y) { $('main').style.marginTop = -y + 'px'; document.body.style.height = '100vh'; document.body.style.overflow = 'hidden'; } }
-if (still) { const sel = (location.search.match(/[?&]sel=([A-Za-z0-9_-]+)/) || [])[1]; if (sel) addEventListener('load', () => setTimeout(() => { const el = document.getElementById(sel); if (!el) return; const y = el.getBoundingClientRect().top + scrollY - 70; $('main').style.marginTop = -y + 'px'; document.body.style.height = '100vh'; document.body.style.overflow = 'hidden'; }, 900)); }
+if (still) { const sel = (location.search.match(/[?&]sel=([A-Za-z0-9_-]+)/) || [])[1]; if (sel) { const jump = () => { const el = document.getElementById(sel); if (!el) return; const m = $('main'); m.style.marginTop = '0px'; const y = el.getBoundingClientRect().top + scrollY - 70; m.style.marginTop = -y + 'px'; document.body.style.height = '100vh'; document.body.style.overflow = 'hidden'; }; jump(); addEventListener('load', () => setTimeout(jump, 300)); } }
   let opened = false; const go = () => { if (!opened) { opened = true; setTimeout(openIntro, still ? 0 : 250); } };
   if (document.readyState !== 'loading') go(); else document.addEventListener('DOMContentLoaded', go);
   setTimeout(go, 1500);                                            // failsafe
