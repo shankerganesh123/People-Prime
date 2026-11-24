@@ -23,7 +23,11 @@ PP.ICONS = {
   quote:'<path d="M7 7h4v4a4 4 0 0 1-4 4M15 7h4v4a4 4 0 0 1-4 4"/>',
   menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',
   arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
-  search:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>'
+  search:'<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7"/>',
+  home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/>',
+  chat:'<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/>'
 };
 PP.icon = (n) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${PP.ICONS[n] || ''}</svg>`;
 PP.paintIcons = (root = document) => root.querySelectorAll('[data-icon]').forEach((e) => {

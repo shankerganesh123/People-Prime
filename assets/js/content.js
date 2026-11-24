@@ -6,9 +6,8 @@
   const DATA = {
     books: [
       { title: 'POSH at the Workplace', sub: 'A comprehensive guide to building safe and inclusive workplaces.', badge: 'Latest release', big: 'POSH', small: 'AT THE WORKPLACE', ca: '#1d7ab8', cb: '#082a47', url: '#',
-        points: ['Setting up the Internal Committee', 'Handling complaints step by step', 'Training modules and awareness plans', 'Annual reporting and documentation'] },
-      { title: 'The HR Compliance Playbook', sub: 'Statutory essentials, checklists and audit-ready templates.', badge: 'Handbook', big: 'Playbook', small: 'HR COMPLIANCE', ca: '#0e3d66', cb: '#041a2e', url: '#' },
-      { title: 'People-First Leadership', sub: 'Practical habits for managers who retain and grow great talent.', badge: 'Guide', big: 'People First', small: 'LEADERSHIP', ca: '#d97f06', cb: '#6b3a00', url: '#' },
+        points: ['Setting up the Internal Committee', 'Handling complaints step by step', 'Training modules and awareness plans', 'Annual reporting and documentation'],
+        audience: ['HR teams', 'Founders & CXOs', 'Managers', 'Internal Committee members'] },
     ],
     videos: [
       { id: '', img: 'assets/img/training.jpg', tag: 'POSH', title: 'POSH Act explained in five minutes', blurb: 'What every employer and employee should know about the Internal Committee, complaints and timelines.' },
@@ -27,19 +26,17 @@
   const cover = (b) => `<div class="book-stage on-dark"><div class="book3d" style="--ca:${b.ca};--cb:${b.cb}">
       <div class="book3d-cover"><span class="bk-kicker">PEOPLE PRIME</span><div><strong class="bk-title">${b.big}</strong><span class="bk-sub">${b.small}</span></div><i class="bk-bar"></i></div></div></div>`;
   const buy = (b, primary) => `<a href="${b.url}" class="btn ${primary ? 'btn-primary' : 'btn-ghost'} btn-sm self-start" ${b.url !== '#' ? 'target="_blank" rel="noopener"' : ''}>Buy on Amazon ${icon('arrow')}</a>`;
-  const bf = $('#bookFeature'), bl = $('#bookList');
-  if (bf && bl) {
+  const bf = $('#bookFeature');
+  if (bf) {
     const f = DATA.books[0];
     const book3d = (b) => `<div class="book3d" style="--ca:${b.ca};--cb:${b.cb}"><div class="book3d-cover"><span class="bk-kicker">PEOPLE PRIME</span><div><strong class="bk-title">${b.big}</strong><span class="bk-sub">${b.small}</span></div><i class="bk-bar"></i></div></div>`;
     bf.innerHTML = `<article class="bk-feature on-dark reveal">
       <span class="bk-glow" aria-hidden="true"></span><span class="bk-grid" aria-hidden="true"></span>
       <div class="bk-cover">${book3d(f)}<span class="bk-floor" aria-hidden="true"></span></div>
-      <div class="bk-body"><span class="badge badge-accent self-start"><i class="dot"></i>${f.badge}</span><h3 class="hd-1">${f.title}</h3><p class="lead">${f.sub}</p>
-        <div class="flex flex-wrap gap-2">${f.points.map((p) => `<span class="chip">${p}</span>`).join('')}</div>
-        <div class="flex flex-wrap gap-3 pt-3">${buy(f, true)}<a href="#contact" class="btn btn-ghost btn-sm">Request a corporate copy</a></div></div></article>`;
-    bl.innerHTML = DATA.books.slice(1).map((b, i) => `<article class="bk-row card card-interactive reveal" style="--d:${(i + 1) * 0.12}s">
-      <div class="bk-row-cover on-dark">${book3d(b)}</div>
-      <div class="bk-row-body"><span class="badge self-start">${b.badge}</span><h3 class="hd-3">${b.title}</h3><p class="body-sm">${b.sub}</p><div class="pt-2">${buy(b, false)}</div></div></article>`).join('');
+      <div class="bk-body"><span class="badge badge-accent self-start"><i class="dot"></i>${f.badge}</span><h3 class="bk-title-lg">${f.title}</h3><p class="lead">${f.sub}</p>
+        <div class="bk-inside"><span class="bk-label">What's inside</span><ul>${f.points.map((p) => `<li><span class="bk-check">${icon('check')}</span>${p}</li>`).join('')}</ul></div>
+        <div class="bk-for"><span class="bk-label">Written for</span><div class="flex flex-wrap gap-2">${f.audience.map((a) => `<span class="chip">${a}</span>`).join('')}</div></div>
+        <div class="flex flex-wrap gap-3 pt-2">${buy(f, true)}<a href="#contact" class="btn btn-ghost btn-sm">Request a corporate copy</a></div></div></article>`;
   }
 
   /* ---------- videos ---------- */

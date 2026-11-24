@@ -1,0 +1,101 @@
+/* ==========================================================================
+   PEOPLE PRIME — MOBILE APP MODE (v2.3)  ·  ≤ 820px
+   Compact app bar with live title · bottom tab bar + centre action button · "More" bottom sheet
+   Swipeable card rows (scroll-snap) · safe-area insets · large touch targets
+   ========================================================================== */
+
+/* hidden on desktop */
+.app-title, .tabbar, .sheet { display: none; }
+
+@media (max-width: 820px) {
+  :root { --nav-h: 3.5rem; --section-y: 3.25rem; --gutter: 1.1rem; }
+  html { scroll-padding-top: 4rem; }
+  body { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+  a, button { touch-action: manipulation; }
+
+  /* ----- app bar ----- */
+  .nav { padding: 0; }
+  .nav .nav-inner { max-width: none; height: calc(3.5rem + env(safe-area-inset-top)); padding: env(safe-area-inset-top) 1rem 0; margin: 0; border-radius: 0; border-width: 0 0 1px; box-shadow: none;
+    background: rgb(var(--c-ink) / .88); position: relative; }
+  .nav.hide .nav-inner { transform: none; }
+  .nav .brand-name, .nav .brand-tag, #burger, #mobile { display: none !important; }
+  .nav .brand img { height: 2rem; }
+  .app-title { display: block; position: absolute; left: 50%; top: calc(50% + env(safe-area-inset-top) / 2); translate: -50% -50%; font: 700 .98rem var(--font-display); letter-spacing: -.01em; color: #fff; white-space: nowrap; }
+  .dots-nav, .to-top { display: none !important; }
+  .progress { top: auto; bottom: calc(4.5rem + env(safe-area-inset-bottom)); display: none; }
+
+  /* ----- bottom tab bar ----- */
+  .tabbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; display: grid; grid-template-columns: 1fr 1fr 1.15fr 1fr 1fr; align-items: end;
+    padding: .35rem .5rem calc(.35rem + env(safe-area-inset-bottom)); border-radius: 1.5rem 1.5rem 0 0; background: rgb(4 26 46 / .92); border-top: 1px solid rgb(140 185 230 / .22);
+    backdrop-filter: blur(18px) saturate(150%); -webkit-backdrop-filter: blur(18px) saturate(150%); box-shadow: 0 -16px 40px -16px rgb(0 0 0 / .6); }
+  .tabbar > a:not(.tab-fab), .tabbar > button { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .2rem; padding: .5rem 0 .35rem; min-height: 3.4rem;
+    background: none; border: 0; cursor: pointer; color: rgb(150 172 196); font: 600 .64rem var(--font-body); transition: color var(--dur-fast); }
+  .tabbar > a:not(.tab-fab) > span, .tabbar > button > span { font-size: 1.4rem; display: inline-flex; transition: transform var(--dur-base) var(--ease-out); }
+  .tabbar small { font-size: .64rem; letter-spacing: .02em; }
+  .tabbar .on { color: rgb(255 176 58); }
+  .tabbar .on > span { transform: translateY(-2px) scale(1.1); }
+  .tabbar .on::before { content: ''; position: absolute; top: 0; left: 50%; translate: -50% 0; width: 1.4rem; height: 3px; border-radius: 0 0 3px 3px; background: rgb(255 176 58); box-shadow: 0 0 10px rgb(255 176 58 / .8); }
+  .tab-fab { justify-self: center; display: grid; place-items: center; width: 3.6rem; height: 3.6rem; margin-top: -1.6rem; border-radius: 50%; font-size: 1.5rem; color: rgb(3 15 28);
+    background: linear-gradient(145deg, #ffc566, #f39c12); border: .28rem solid rgb(4 26 46); box-shadow: 0 14px 30px -8px rgb(243 156 18 / .75); transition: transform var(--dur-base) var(--ease-out); }
+  .tab-fab:active { transform: scale(.92); }
+
+  /* ----- "More" bottom sheet ----- */
+  .sheet { display: block; position: fixed; inset: 0; z-index: 70; visibility: hidden; }
+  .sheet.open { visibility: visible; }
+  .sheet-backdrop { position: absolute; inset: 0; background: rgb(3 15 28 / .6); backdrop-filter: blur(4px); opacity: 0; transition: opacity var(--dur-base); }
+  .sheet.open .sheet-backdrop { opacity: 1; }
+  .sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; padding: .6rem 1.1rem calc(1.2rem + env(safe-area-inset-bottom)); border-radius: 1.75rem 1.75rem 0 0; transform: translateY(105%);
+    background: linear-gradient(180deg, rgb(12 58 98), rgb(4 26 46)); border-top: 1px solid rgb(140 185 230 / .3); transition: transform .45s var(--ease-out); max-height: 85vh; overflow: auto; }
+  .sheet.open .sheet-panel { transform: none; }
+  .sheet-grab { display: block; width: 2.5rem; height: .3rem; border-radius: 999px; background: rgb(255 255 255 / .25); margin: .2rem auto 1rem; }
+  .sheet-title { margin: 0 0 .9rem; font: 700 1.1rem var(--font-display); color: #fff; }
+  .sheet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; }
+  .sheet-grid a { display: flex; flex-direction: column; align-items: center; gap: .45rem; padding: .95rem .4rem; border-radius: 1.1rem; font: 600 .74rem var(--font-body); color: rgb(226 238 250);
+    background: rgb(255 255 255 / .06); border: 1px solid rgb(140 185 230 / .18); text-align: center; }
+  .sheet-grid a:active { background: rgb(255 255 255 / .14); }
+  .sheet-grid a > span { font-size: 1.5rem; color: rgb(255 176 58); display: inline-flex; }
+  .sheet-actions { display: grid; gap: .65rem; margin-top: 1rem; }
+
+  /* ----- swipeable rows ----- */
+  .bento, .snap-row { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: .9rem; margin-inline: calc(-1 * var(--gutter)); padding: .25rem var(--gutter) 1rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .bento::-webkit-scrollbar, .snap-row::-webkit-scrollbar { display: none; }
+  .bento > *, .snap-row > * { flex: 0 0 82%; scroll-snap-align: center; min-width: 0; }
+  .bento > .b-4 { flex-basis: 82%; flex-direction: column !important; align-items: flex-start !important; justify-content: space-between; }
+  .bento .reveal, .snap-row .reveal { opacity: 1; transform: none; filter: none; }
+  .bento > .svc-photo, .bento > .bento-feature { min-height: 22rem; }
+
+  /* ----- app-like surfaces & touch comfort ----- */
+  .card, .vtile, .case, .article-row, .bk-feature, .quote-card, .contact-card, .stats-panel, .news { border-radius: 1.4rem; }
+  .btn { min-height: 3rem; } .btn-sm { min-height: 2.6rem; }
+  .field { font-size: 16px; min-height: 3rem; }
+  .sec-head { margin-bottom: 1.75rem; gap: 1rem; }
+  .sec-side .lead { font-size: 1rem; }
+  .hero-min { min-height: auto; }
+  .hero-min .container-x { padding-top: calc(3.5rem + env(safe-area-inset-top) + 1.25rem) !important; padding-bottom: 3.5rem !important; }
+  .site-footer { padding-bottom: 1rem; }
+  .kinetic-track { font-size: 1.7rem; }
+  .vitem { grid-template-columns: 7.5rem 1fr; }
+  main > section[data-tone], .kinetic, .site-footer { margin-top: -1.5rem; border-radius: 1.5rem 1.5rem 0 0; }
+}
+
+/* ==========================================================================
+   Our Approach — mobile: one small "Step N" label per card, swipeable, with progress dots
+   ========================================================================== */
+.rail-dots { display: none; }
+@media (max-width: 820px) {
+  #approach .container-x { gap: 1.75rem; }
+  #approach .btn-primary { width: 100%; justify-content: center; }
+  #approach .process-rail { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: .85rem; padding: .25rem var(--gutter) .5rem; margin-inline: calc(-1 * var(--gutter)); counter-reset: st; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  #approach .process-rail::-webkit-scrollbar { display: none; }
+  #approach .process-rail::before { display: none; }
+  #approach .process-item { flex: 0 0 84%; scroll-snap-align: center; padding: 0; counter-increment: st; }
+  #approach .process-item.reveal { opacity: 1; transform: none; filter: none; }
+  #approach .step-num, #approach .ghost-no { display: none; }
+  #approach .process-card { height: 100%; padding: 1.25rem 1.25rem 1.35rem; border-radius: 1.4rem; border-top: 3px solid rgb(255 176 58); background: linear-gradient(160deg, rgb(255 255 255 / .09), rgb(255 255 255 / .03)); }
+  #approach .process-card::before { content: 'Step ' counter(st) ' of 4'; display: inline-block; margin-bottom: .75rem; padding: .25rem .65rem; border-radius: 999px; font: 700 .64rem var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: rgb(3 15 28); background: linear-gradient(135deg, #ffc566, #f39c12); }
+  #approach .process-card .hd-2 { font-size: 1.3rem; line-height: 1.2; }
+  #approach .process-card .body-sm { font-size: .9rem; }
+  .rail-dots { display: flex; justify-content: center; gap: .4rem; margin-top: .35rem; }
+  .rail-dots i { width: .4rem; height: .4rem; border-radius: 999px; background: rgb(255 255 255 / .3); transition: width var(--dur-base) var(--ease-out), background var(--dur-base); }
+  .rail-dots i.on { width: 1.4rem; background: rgb(255 176 58); }
+}

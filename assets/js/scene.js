@@ -22,7 +22,7 @@
 
   const gBlue = glowTex(C.b300), gAmber = glowTex(C.a400);
   const sprite = (map, col, op, size, x, y, z) => { const s = new THREE.Sprite(new THREE.SpriteMaterial({ map, color: col, transparent: true, opacity: op, blending: THREE.AdditiveBlending, depthWrite: false })); s.scale.setScalar(size); s.position.set(x, y, z); scene.add(s); return s; };
-  const orbs = [sprite(gBlue, C.b500, .38, 46, 14, 4, -20), sprite(gAmber, C.a500, .16, 34, -22, -10, -25), sprite(gBlue, C.b500, .26, 40, -10, 18, -30)];
+  const orbs = [sprite(gBlue, C.b500, .2, 46, 14, 4, -20), sprite(gAmber, C.a500, .1, 34, -22, -10, -25), sprite(gBlue, C.b500, .14, 40, -10, 18, -30)];
 
   const mkDust = (n, col, size, op, tex) => {
     const p = new Float32Array(n * 3);

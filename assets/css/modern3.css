@@ -1,0 +1,49 @@
+/* ==========================================================================
+   PEOPLE PRIME — PAGE-WIDE MODERN LAYER (v2.1)
+   Stacked sheets · brand-blue stage · section numbering · kinetic band · dot navigation · micro-interactions
+   ========================================================================== */
+
+/* ---------- Stacked sheets: every section slides over the previous one ---------- */
+main > section[data-tone], .kinetic { position: relative; border-radius: 2.5rem 2.5rem 0 0; margin-top: -2.5rem; }
+@media (max-width: 640px) { main > section[data-tone], .kinetic { border-radius: 1.75rem 1.75rem 0 0; margin-top: -1.75rem; } }
+main > section[data-tone] { box-shadow: 0 -24px 60px -30px rgb(3 15 28 / .45); }
+main > section.hero + section[data-tone] { padding-top: calc(var(--section-y) + 1rem); }
+.site-footer { border-radius: 2.5rem 2.5rem 0 0; margin-top: -2.5rem; }
+@media (max-width: 640px) { .site-footer { border-radius: 1.75rem 1.75rem 0 0; margin-top: -1.75rem; } }
+
+/* ---------- Dark sections share the hero's brand-blue stage ---------- */
+[data-tone="dark"], html[data-theme="dark"] [data-tone="light"] {
+  background: radial-gradient(60% 50% at 85% 0%, rgb(58 151 208 / .22), transparent 70%), linear-gradient(165deg, rgb(12 58 98) 0%, rgb(7 38 66) 55%, rgb(4 26 46) 100%);
+  -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* ---------- Editorial section numbering ---------- */
+body { counter-reset: sec; }
+main > section:not(.hero) .eyebrow { counter-increment: sec; }
+main > section:not(.hero) .eyebrow::before { content: counter(sec, decimal-leading-zero); font-variant-numeric: tabular-nums; padding-right: .8rem; margin-right: .1rem; border-right: 1px solid currentColor; opacity: .75; }
+.hero .eyebrow::before { content: none; }
+
+/* ---------- Kinetic text band ---------- */
+.kinetic { z-index: 0; overflow: hidden; padding-block: 1.4rem 3.4rem; background: linear-gradient(90deg, #ffc566, #f39c12 55%, #ffb03a); color: rgb(3 15 28); }
+.kinetic-track { display: flex; align-items: center; gap: 2rem; width: max-content; animation: tick 40s linear infinite; font: 800 clamp(1.9rem, 1rem + 3.6vw, 3.6rem)/1 var(--font-display); letter-spacing: -.03em; text-transform: uppercase; white-space: nowrap; }
+.kinetic-track span:nth-child(3n+2) { color: transparent; -webkit-text-stroke: 1.5px rgb(3 15 28); }
+.kinetic-track i { font-style: normal; font-size: .6em; opacity: .8; }
+.kinetic:hover .kinetic-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .kinetic-track { animation: none; } }
+
+/* ---------- Side dot navigation ---------- */
+.dots-nav { position: fixed; right: 1.1rem; top: 50%; translate: 0 -50%; z-index: 45; display: none; flex-direction: column; gap: .3rem; padding: .6rem .45rem; border-radius: 999px;
+  background: rgb(4 26 46 / .6); border: 1px solid rgb(140 185 230 / .22); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 18px 40px -18px rgb(0 0 0 / .6); }
+@media (min-width: 1320px) { .dots-nav { display: flex; } }
+.dots-nav a { position: relative; display: block; width: 1.1rem; height: 1.1rem; border-radius: 50%; }
+.dots-nav a::before { content: ''; position: absolute; inset: .3rem; border-radius: 50%; background: rgb(140 185 230 / .5); transition: all var(--dur-base) var(--ease-out); }
+.dots-nav a:hover::before { background: #fff; inset: .22rem; }
+.dots-nav a.on::before { background: rgb(255 176 58); inset: .18rem; box-shadow: 0 0 12px rgb(255 176 58 / .8); }
+.dots-nav a::after { content: attr(data-label); position: absolute; right: 1.8rem; top: 50%; translate: 6px -50%; padding: .3rem .65rem; border-radius: 999px; white-space: nowrap; font: 600 .7rem var(--font-body); color: #fff;
+  background: rgb(4 26 46 / .92); border: 1px solid rgb(140 185 230 / .25); opacity: 0; pointer-events: none; transition: opacity var(--dur-fast), translate var(--dur-base) var(--ease-out); }
+.dots-nav a:hover::after, .dots-nav a:focus-visible::after { opacity: 1; translate: 0 -50%; }
+
+/* ---------- Micro-interactions ---------- */
+.btn [data-icon], .link-arrow [data-icon], .announce-arrow { transition: transform var(--dur-base) var(--ease-out); }
+.btn:hover [data-icon], .link-arrow:hover [data-icon] { transform: translateX(4px); }
+.hd-1 { text-wrap: balance; } .lead { text-wrap: pretty; }
+.card-interactive:hover .icon-box { transform: translateY(-2px) rotate(-4deg); } .icon-box { transition: transform var(--dur-base) var(--ease-out); }
