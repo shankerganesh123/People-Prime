@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>People Prime — Building Better Workplaces, Together</title>
+<meta name="description" content="People Prime helps organizations build efficient, compliant and people-first workplaces." />
+<meta name="theme-color" content="#030f1c" />
+<link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Design system: tokens → Tailwind mapping → components -->
+<link rel="stylesheet" href="assets/css/tokens.css" />
+<script src="https://cdn.tailwindcss.com/3.4.1"></script>
+<script src="assets/js/tailwind.config.js"></script>
+<link rel="stylesheet" href="assets/css/components.css" />
+<link rel="stylesheet" href="assets/css/modern.css" />
+<link rel="stylesheet" href="assets/css/theme.css" />
+<link rel="stylesheet" href="assets/css/sections.css" />
+<link rel="stylesheet" href="assets/css/sections2.css" />
+<link rel="stylesheet" href="assets/css/sections3.css" />
+<script>try{document.documentElement.dataset.theme=new URLSearchParams(location.search).get("theme")||localStorage.getItem("pp-theme")||"hybrid"}catch(e){document.documentElement.dataset.theme="hybrid"}</script>
+</head>
+<body class="loading">
+
+<div class="letterbox top"></div><div class="letterbox bot"></div>
+<div class="progress" id="progress"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette"></div><div class="grain"></div>
+
+<!-- ============ NAV ============ -->
+<header id="nav" class="nav">
+  <div class="container-x nav-inner">
+    <a href="#home" class="brand" aria-label="People Prime home">
+      <img src="assets/logo-mark.svg" alt="" />
+      <span><span class="brand-name">People Prime</span><span class="brand-tag">Building better workplaces, Together</span></span>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7" aria-label="Primary">
+      <a href="#about" class="nav-link">About Us</a><a href="#services" class="nav-link">Services</a>
+      <a href="#industries" class="nav-link">Industries</a><a href="#books" class="nav-link">Books</a><a href="#videos" class="nav-link">Videos</a><a href="#impact" class="nav-link">Case Studies</a><a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-3"><button id="themeBtn" class="theme-btn" aria-label="Switch theme"></button>
+    <a href="#contact" class="hidden lg:inline-flex btn btn-primary btn-sm">Talk to an HR Expert <span data-icon="arrow"></span></a></div>
+    <button id="burger" class="lg:hidden text-text-1 p-2 text-2xl" aria-label="Open menu"><span data-icon="menu"></span></button>
+  </div>
+  <div id="mobile" class="lg:hidden hidden card mx-4 !p-5 space-y-3 text-sm">
+    <a href="#about" class="block">About Us</a><a href="#services" class="block">Services</a><a href="#industries" class="block">Industries</a>
+    <a href="#books" class="block">Books</a><a href="#videos" class="block">Videos</a><a href="#impact" class="block">Case Studies</a><a href="#contact" class="block text-accent-text font-semibold">Talk to an HR Expert →</a>
+  </div>
+</header>
+
+<main class="stage">
+<!-- ============ HERO ============ -->
+<section id="home" class="hero relative min-h-screen flex flex-col overflow-hidden">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <div class="container-x grid lg:grid-cols-12 gap-14 items-center w-full flex-1" style="padding-top: calc(var(--nav-h) + 2.5rem); padding-bottom: 3.5rem">
+    <div class="lg:col-span-7 reveal in" id="heroText">
+      <a href="#books" class="announce reveal" style="--d:.1s">
+        <span class="badge badge-accent">New</span><span>POSH at the Workplace — now on Amazon</span><span class="announce-arrow" data-icon="arrow"></span>
+      </a>
+      <h1 class="h-display mt-7">
+        <span class="line-mask"><span style="--d:.2s">Building Better</span></span>
+        <span class="line-mask"><span style="--d:.35s">Workplaces Through</span></span>
+        <span class="line-mask"><span style="--d:.5s"><span class="rotator" aria-label="Smarter HR"><span class="on text-grad">Smarter HR.</span><span class="text-grad">Safer Teams.</span><span class="text-grad">Strong Culture.</span><span class="text-grad">Clear Compliance.</span></span></span></span>
+      </h1>
+      <p class="lead mt-7 max-w-xl reveal" style="--d:.8s">From talent acquisition and payroll management to compliance and HR transformation, People Prime helps organizations build efficient, compliant and people-first workplaces.</p>
+      <div class="mt-9 flex flex-wrap items-center gap-4 reveal" style="--d:1s">
+        <a href="#contact" class="btn btn-primary magnetic">Talk to an HR Expert <span data-icon="arrow"></span></a>
+        <a href="#videos" class="btn btn-ghost"><span class="play-dot" aria-hidden="true"></span>Watch our story</a>
+      </div>
+      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5 reveal" style="--d:1.2s">
+        <div class="flex items-center gap-4">
+          <div class="avatars" aria-hidden="true"><span>A</span><span>R</span><span>S</span><span>+</span></div>
+          <div class="caption leading-snug"><span class="text-text-1 font-semibold text-sm"><span data-count="450" data-suffix="+">0</span></span><br>organizations trust us</div>
+        </div>
+        <div class="hidden sm:block w-px h-10 bg-line/15" aria-hidden="true"></div>
+        <div class="flex items-center gap-3"><span class="stat-num"><span data-count="18">0</span>+</span><span class="caption leading-snug">years of<br>HR expertise</span></div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 hidden lg:block reveal relative h-[30rem]" style="--d:1s" id="heroCard" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-strip" aria-label="Industries we serve">
+    <div class="ticker"><div class="ticker-track">
+      <span class="hero-tag">IT &amp; ITES</span><span class="hero-tag">Manufacturing</span><span class="hero-tag">Healthcare</span><span class="hero-tag">BFSI</span><span class="hero-tag">Retail &amp; E-commerce</span><span class="hero-tag">Education</span><span class="hero-tag">Logistics</span><span class="hero-tag">Hospitality</span>
+      <span class="hero-tag">IT &amp; ITES</span><span class="hero-tag">Manufacturing</span><span class="hero-tag">Healthcare</span><span class="hero-tag">BFSI</span><span class="hero-tag">Retail &amp; E-commerce</span><span class="hero-tag">Education</span><span class="hero-tag">Logistics</span><span class="hero-tag">Hospitality</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="section" data-tone="light">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Our HR Solutions</span>
+        <h2 class="hd-1 mt-4">Comprehensive HR Services<br class="hidden lg:block"> for Your <span class="text-grad">Business</span></h2></div>
+      <div class="sec-side"><p class="lead">Seven specialist practices, one accountable partner — from hiring the right people to keeping them safe, paid and compliant.</p>
+        <a href="#contact" class="link-arrow">Book a free HR health check <span data-icon="arrow"></span></a></div>
+    </div>
+    <div id="svcGrid" class="bento"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section tone-alt" data-tone="light">
+  <div class="container-x grid lg:grid-cols-12 gap-14 items-center">
+    <div class="lg:col-span-6 about-collage reveal">
+      <img class="ac-main" src="assets/img/team-success.jpg" alt="HR consultants celebrating a successful project" loading="lazy" />
+      <img class="ac-sub" src="assets/img/team-cafe.jpg" alt="A team collaborating around a table" loading="lazy" />
+      <div class="ac-badge on-dark"><strong><span data-count="18">0</span>+</strong><span>Years of HR<br>expertise</span></div>
+      <div class="chip-float ac-chip on-dark"><span class="ic" data-icon="shield"></span><span>POSH compliant<small>Trusted across India</small></span></div>
+    </div>
+    <div class="lg:col-span-6 grid gap-6">
+      <div class="reveal grid gap-5">
+        <span class="eyebrow">About People Prime</span>
+        <h2 class="hd-1">Trusted HR Partner for Over <span class="text-grad">18 Years</span></h2>
+        <p class="lead max-w-xl">We partner with organizations across industries to design and implement people-centric HR solutions that drive compliance, efficiency and growth.</p>
+      </div>
+      <div class="grid grid-cols-1 min-[520px]:grid-cols-2 gap-4">
+        <div class="vtile reveal" style="--d:.1s"><span class="vt-ic"><span data-icon="users"></span></span><h4 class="hd-3">People-First Approach</h4><p class="body-sm">Because people matter.</p><i class="vt-line"></i></div>
+        <div class="vtile reveal" style="--d:.2s"><span class="vt-ic"><span data-icon="globe"></span></span><h4 class="hd-3">Industry Experience</h4><p class="body-sm">Across diverse sectors.</p><i class="vt-line"></i></div>
+        <div class="vtile reveal" style="--d:.3s"><span class="vt-ic"><span data-icon="puzzle"></span></span><h4 class="hd-3">Tailored Solutions</h4><p class="body-sm">For your unique needs.</p><i class="vt-line"></i></div>
+        <div class="vtile reveal" style="--d:.4s"><span class="vt-ic"><span data-icon="leaf"></span></span><h4 class="hd-3">Long-Term Partnership</h4><p class="body-sm">For sustainable growth.</p><i class="vt-line"></i></div>
+      </div>
+      <a href="#contact" class="btn btn-secondary self-start reveal">Know More About Us <span data-icon="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section-sm section" aria-label="Key numbers" data-tone="light">
+  <div class="container-x"><div class="stats-panel on-dark reveal">
+    <span class="sp-glow" aria-hidden="true"></span><span class="sp-pattern" aria-hidden="true"></span>
+    <div class="sp-head">
+      <div><span class="eyebrow">People Prime in numbers</span><h2 class="hd-2 mt-3">Numbers that build trust</h2></div>
+      <p class="body-sm sp-note">Over 18 years of partnering with organizations across India — measured in people, compliance and results.</p>
+    </div>
+    <div class="sp-tiles">
+      <div class="stat-tile"><span class="st-ic" data-icon="calendar"></span><div class="stat-big"><span data-count="18">0</span>+</div><p class="st-label">Years of HR expertise</p><i class="st-bar" style="--w:72%"></i></div>
+      <div class="stat-tile"><span class="st-ic" data-icon="handshake"></span><div class="stat-big"><span data-count="450">0</span>+</div><p class="st-label">Organizations served</p><i class="st-bar" style="--w:88%"></i></div>
+      <div class="stat-tile"><span class="st-ic" data-icon="users"></span><div class="stat-big"><span data-count="12" data-suffix="K+">0</span></div><p class="st-label">Professionals placed</p><i class="st-bar" style="--w:64%"></i></div>
+      <div class="stat-tile"><span class="st-ic" data-icon="shield"></span><div class="stat-big"><span data-count="98" data-suffix="%">0</span></div><p class="st-label">Compliance success rate</p><i class="st-bar" style="--w:98%"></i></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section id="industries" class="section-sm section" data-tone="light">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Industries We Serve</span>
+        <h2 class="hd-1 mt-4 max-w-3xl">Domain-Specific HR Solutions for <span class="text-grad">Diverse Industries</span></h2></div>
+      <div class="sec-side"><a href="#contact" class="link-arrow">Explore All Industries <span data-icon="arrow"></span></a></div>
+    </div>
+    <div id="indGrid" class="grid gap-4 reveal"></div>
+  </div>
+</section>
+
+<!-- ============ APPROACH ============ -->
+<section id="approach" class="section" data-tone="dark">
+  <div class="container-x grid lg:grid-cols-12 gap-14">
+    <div class="lg:col-span-5"><div class="lg:sticky lg:top-28 grid gap-6 reveal">
+      <span class="eyebrow">Our Approach</span><h2 class="hd-1">How We <span class="text-grad">Work</span></h2>
+      <p class="lead max-w-md">A simple, transparent four-step method that turns HR complexity into a system your teams can trust.</p>
+      <a href="#contact" class="btn btn-primary self-start">Start a conversation <span data-icon="arrow"></span></a>
+      <figure class="photo-card hidden lg:block"><img src="assets/img/training.jpg" alt="A trainer presenting to a team during a workplace session" loading="lazy" />
+        <figcaption><span class="badge badge-accent">In the field</span><span class="body-sm !text-brand-100">Hands-on training with your teams, not just documents.</span></figcaption></figure>
+    </div></div>
+    <ol class="lg:col-span-7 process-rail list-none m-0">
+      <li class="process-item reveal"><div class="step-num">1</div><div class="card process-card"><span class="ghost-no">01</span><h3 class="hd-2">Understand Your Needs</h3><p class="body-sm mt-2">Deep discovery of your people, processes, policies and goals — before we recommend anything.</p><div class="flex flex-wrap gap-2 mt-4"><span class="chip">Discovery call</span><span class="chip">Policy review</span><span class="chip">Gap analysis</span></div></div></li>
+      <li class="process-item reveal"><div class="step-num">2</div><div class="card process-card"><span class="ghost-no">02</span><h3 class="hd-2">Plan the Right Strategy</h3><p class="body-sm mt-2">Roadmaps aligned to compliance obligations, budget and growth plans.</p><div class="flex flex-wrap gap-2 mt-4"><span class="chip">Roadmap</span><span class="chip">Timelines</span><span class="chip">Owners</span></div></div></li>
+      <li class="process-item reveal"><div class="step-num">3</div><div class="card process-card"><span class="ghost-no">03</span><h3 class="hd-2">Implement with Excellence</h3><p class="body-sm mt-2">Precise execution by seasoned HR specialists, with clear owners and timelines.</p><div class="flex flex-wrap gap-2 mt-4"><span class="chip">Policies &amp; SOPs</span><span class="chip">Training</span><span class="chip">Systems</span></div></div></li>
+      <li class="process-item reveal"><div class="step-num">4</div><div class="card process-card"><span class="ghost-no">04</span><h3 class="hd-2">Support for Long-Term Success</h3><p class="body-sm mt-2">Continuous guidance, audits and refreshers as your business evolves.</p><div class="flex flex-wrap gap-2 mt-4"><span class="chip">Audits</span><span class="chip">Refreshers</span><span class="chip">Advisory</span></div></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section id="impact" class="section" data-tone="light">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Our Impact</span>
+        <h2 class="hd-1 mt-4">Trusted by Businesses <span class="text-grad">Across India</span></h2></div>
+      <div class="sec-side"><p class="lead">Real partnerships. Real results.</p><a href="#contact" class="link-arrow">View Case Studies <span data-icon="arrow"></span></a></div>
+    </div>
+
+    <figure class="quote-card on-dark reveal m-0">
+      <img class="quote-bg" src="assets/img/office-floor.jpg" alt="" loading="lazy" />
+      <div class="quote-shade"></div>
+      <div class="relative grid lg:grid-cols-12 gap-8 items-end p-8 md:p-12">
+        <div class="lg:col-span-9" id="quotes" aria-live="polite">
+          <span class="text-accent-text text-5xl block mb-4" data-icon="quote"></span>
+          <blockquote class="q quote-text m-0">People Prime has been an invaluable partner in strengthening our HR processes and compliance framework.</blockquote>
+          <blockquote class="q hidden quote-text m-0">Their POSH training transformed how our teams think about a safe and respectful workplace.</blockquote>
+          <blockquote class="q hidden quote-text m-0">From payroll to audits, they made our HR operations seamless and fully compliant.</blockquote>
+          <figcaption class="flex items-center gap-3 mt-6"><span class="avatar" aria-hidden="true">VC</span><span><span class="block text-text-1 font-semibold">Valued Client</span><span class="caption">HR Leadership · Partner organization</span></span></figcaption>
+        </div>
+        <div class="lg:col-span-3 flex lg:justify-end gap-3"><button id="qPrev" class="btn btn-ghost !p-0 w-12 h-12" aria-label="Previous testimonial">‹</button><button id="qNext" class="btn btn-primary !p-0 w-12 h-12" aria-label="Next testimonial">›</button></div>
+      </div>
+    </figure>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-6">
+      <a href="#contact" class="card card-interactive case !p-0 overflow-hidden group reveal"><div class="case-img"><img src="assets/img/meeting-laptops.jpg" alt="" loading="lazy" /></div>
+        <div class="p-6"><span class="badge">IT &amp; ITES</span><h3 class="hd-3 mt-3">POSH compliance rollout across multiple offices</h3><span class="link-arrow mt-4">Read case study <span data-icon="arrow"></span></span></div></a>
+      <a href="#contact" class="card card-interactive case !p-0 overflow-hidden group reveal" style="--d:.12s"><div class="case-img"><img src="assets/img/laptop-bw.jpg" alt="" loading="lazy" /></div>
+        <div class="p-6"><span class="badge">Manufacturing</span><h3 class="hd-3 mt-3">Standardising HR policies and SOPs at scale</h3><span class="link-arrow mt-4">Read case study <span data-icon="arrow"></span></span></div></a>
+      <a href="#contact" class="card card-interactive case !p-0 overflow-hidden group reveal" style="--d:.24s"><div class="case-img"><img src="assets/img/team-cafe.jpg" alt="" loading="lazy" /></div>
+        <div class="p-6"><span class="badge">Start-ups</span><h3 class="hd-3 mt-3">Building a repeatable hiring and onboarding engine</h3><span class="link-arrow mt-4">Read case study <span data-icon="arrow"></span></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKS ============ -->
+<section id="books" class="section tone-alt" data-tone="light">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Recent Publications</span>
+        <h2 class="hd-1 mt-4">Books from our <span class="text-grad">HR experts</span></h2></div>
+      <div class="sec-side"><p class="lead">Practical, field-tested guides on compliance, leadership and workplace culture.</p><a href="#" class="link-arrow">View all books <span data-icon="arrow"></span></a></div>
+    </div>
+    <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+      <div id="bookFeature" class="lg:col-span-7"></div>
+      <div id="bookList" class="lg:col-span-5 grid gap-6"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section id="videos" class="section" data-tone="dark">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Recent Videos</span>
+        <h2 class="hd-1 mt-4">Watch. Learn. <span class="text-grad">Apply.</span></h2></div>
+      <div class="sec-side"><p class="lead">Short, practical explainers from our HR and compliance specialists.</p><a id="channelLink" href="#" class="link-arrow" target="_blank" rel="noopener">Visit our YouTube channel <span data-icon="arrow"></span></a></div>
+    </div>
+    <div class="grid lg:grid-cols-12 gap-6 items-start">
+      <div id="videoFeature" class="lg:col-span-7"></div>
+      <div id="videoList" class="lg:col-span-5 grid gap-4"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section id="insights" class="section tone-alt" data-tone="light">
+  <div class="container-x">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Insights &amp; Resources</span>
+        <h2 class="hd-1 mt-4">Stay Informed. <span class="text-grad">Stay Ahead.</span></h2></div>
+      <div class="sec-side"><p class="lead">Expert insights, HR trends and practical resources.</p><a href="#" class="link-arrow">Explore All <span data-icon="arrow"></span></a></div>
+    </div>
+    <div class="grid lg:grid-cols-12 gap-6">
+      <a href="#" class="article-feature on-dark lg:col-span-7 reveal group">
+        <img src="assets/img/meeting-table.jpg" alt="" loading="lazy" /><span class="article-shade"></span>
+        <span class="article-body"><span class="badge badge-accent">Compliance</span><span class="hd-2 !text-white block mt-4 max-w-md">Key HR Compliance Updates for 2025</span><span class="body-sm !text-brand-100 block mt-3 max-w-md">What changed, who is affected and what to do before your next audit.</span><span class="link-arrow mt-5 !text-white">Read More <span data-icon="arrow"></span></span></span>
+      </a>
+      <div class="lg:col-span-5 grid gap-6">
+        <a href="#" class="card card-interactive article-row group reveal" style="--d:.12s"><div class="article-thumb"><img src="assets/img/workshop.jpg" alt="" loading="lazy" /></div>
+          <div><span class="badge">Culture</span><h3 class="hd-3 mt-2">Building a People-First Workplace Culture</h3><span class="link-arrow mt-3">Read More <span data-icon="arrow"></span></span></div></a>
+        <a href="#" class="card card-interactive article-row group reveal" style="--d:.24s"><div class="article-thumb"><img src="assets/img/meeting-laptops.jpg" alt="" loading="lazy" /></div>
+          <div><span class="badge">Talent</span><h3 class="hd-3 mt-2">Effective Strategies for Talent Retention</h3><span class="link-arrow mt-3">Read More <span data-icon="arrow"></span></span></div></a>
+      </div>
+    </div>
+    <form id="newsForm" class="news on-dark reveal" novalidate>
+      <div><h3 class="hd-2 !text-white">Get HR updates in your inbox</h3><p class="body-sm mt-1">Monthly compliance alerts and practical guides. No spam.</p></div>
+      <div class="news-field"><input class="field" type="email" name="email" placeholder="you@company.com" aria-label="Email address" required /><button class="btn btn-primary" type="submit">Subscribe</button></div>
+      <p id="newsMsg" class="caption w-full min-h-[1.2em]" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="section section-sm" data-tone="light">
+  <div class="container-x grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4 grid gap-4 content-start reveal"><span class="eyebrow">FAQ</span><h2 class="hd-1">Questions, <span class="text-grad">answered.</span></h2><p class="body-sm">Can't find what you need? Our team replies within one business day.</p></div>
+    <div class="lg:col-span-8 reveal" style="--d:.1s">
+      <details class="acc" open><summary>Who needs a POSH Internal Committee?</summary><p class="body-sm">Any organization with 10 or more employees must constitute an Internal Committee under the POSH Act. We set it up, train members and handle annual filings.</p></details>
+      <details class="acc"><summary>Can you manage payroll end-to-end?</summary><p class="body-sm">Yes — salary processing, statutory deductions, PF/ESI/TDS returns, payslips and employee queries, with full audit trails.</p></details>
+      <details class="acc"><summary>Do you work with startups as well as large enterprises?</summary><p class="body-sm">Absolutely. We scale from a first HR policy for a 15-person team to multi-location compliance programmes for large organizations.</p></details>
+      <details class="acc"><summary>How quickly can an engagement start?</summary><p class="body-sm">After a discovery call we typically share a scoped proposal within 3 business days and begin onboarding the following week.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section section-sm" data-tone="light">
+  <div class="container-x" style="max-width:76rem">
+    <div class="contact-card on-dark reveal">
+      <img class="contact-bg" src="assets/img/team-success.jpg" alt="" loading="lazy" /><div class="contact-shade"></div>
+      <div class="relative grid lg:grid-cols-2 gap-12 items-center p-8 md:p-14">
+        <div class="grid gap-5">
+          <span class="eyebrow">Let's talk</span>
+          <h2 class="hd-1">Ready to transform your <span class="text-grad">HR practices?</span></h2>
+          <p class="lead">Talk to our HR experts and discover solutions tailored to your business needs.</p>
+          <ul class="grid gap-3 body-sm list-none p-0 m-0">
+            <li class="flex gap-3 items-center"><span class="text-accent-text text-xl" data-icon="shield"></span>Free 30-minute HR health check</li>
+            <li class="flex gap-3 items-center"><span class="text-accent-text text-xl" data-icon="calendar"></span>Response within one business day</li>
+            <li class="flex gap-3 items-center"><span class="text-accent-text text-xl" data-icon="handshake"></span>No obligation, fully confidential</li>
+          </ul>
+        </div>
+        <form id="contactForm" class="contact-form grid gap-4" novalidate>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="label" for="f-name">Name</label><input class="field" id="f-name" name="name" placeholder="Your name" required autocomplete="name" /></div>
+            <div><label class="label" for="f-mail">Work email</label><input class="field" id="f-mail" name="email" type="email" placeholder="you@company.com" required autocomplete="email" /></div>
+          </div>
+          <div><label class="label" for="f-svc">I'm interested in</label>
+            <select class="field" id="f-svc" name="service"><option>POSH Compliance</option><option>Talent Acquisition</option><option>Payroll &amp; HR Operations</option><option>Talent Development</option><option>HR Audit &amp; Automation</option><option>Legal &amp; Compliance</option></select></div>
+          <div><label class="label" for="f-msg">Message</label><textarea class="field" id="f-msg" name="message" rows="3" placeholder="Tell us about your requirement"></textarea></div>
+          <button class="btn btn-primary magnetic" type="submit">Talk to an HR Expert <span data-icon="arrow"></span></button>
+          <p id="formMsg" class="caption min-h-[1.2em]" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="stage border-t border-line/10 bg-ink/75 backdrop-blur-md">
+  <div class="container-x py-10 flex flex-wrap items-center justify-between gap-6">
+    <a href="#home" class="brand"><img src="assets/logo-mark.svg" alt="" /><span><span class="brand-name">People Prime</span><span class="brand-tag">Building better workplaces, Together</span></span></a>
+    <nav class="flex flex-wrap gap-6 caption" aria-label="Footer">
+      <a href="#home" class="hover:text-white">Home</a><a href="#about" class="hover:text-white">About Us</a><a href="#services" class="hover:text-white">Services</a>
+      <a href="#industries" class="hover:text-white">Industries</a><a href="#books" class="hover:text-white">Books</a><a href="#videos" class="hover:text-white">Videos</a><a href="#insights" class="hover:text-white">Insights</a><a href="#impact" class="hover:text-white">Case Studies</a><a href="#contact" class="hover:text-white">Contact</a>
+      <a href="design-system.html" class="hover:text-white text-accent-text">Design System</a></nav>
+  </div>
+  <div class="container-x border-t border-line/10 py-4 flex flex-wrap justify-between caption">
+    <span>© 2025 People Prime. All rights reserved.</span><span>Terms &amp; Conditions &nbsp;|&nbsp; Privacy Policy</span></div>
+</footer>
+
+<dialog id="videoModal" class="vmodal" aria-label="Video player"><button class="vmodal-close" data-close aria-label="Close video">&#10005;</button><div id="videoFrame" class="vmodal-frame"></div></dialog>
+<button class="to-top" id="toTop" aria-label="Back to top"><span data-icon="arrow" style="display:inline-block;transform:rotate(-90deg)"></span></button>
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/content.js"></script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/scene.js"></script>
+</body>
+</html>

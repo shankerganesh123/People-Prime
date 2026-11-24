@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 64" fill="none">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a97d0"/><stop offset="1" stop-color="#14548a"/></linearGradient>
+  </defs>
+  <!-- amber swoosh -->
+  <path d="M6 34C2 20 12 6 30 4 20 8 12 18 14 32c1 12 12 22 28 22 16 0 24-8 26-14-4 14-18 22-34 20C18 58 9 48 6 34Z" fill="#f39c12"/>
+  <!-- growth bars -->
+  <rect x="22" y="36" width="7" height="14" rx="1.5" fill="url(#b)"/>
+  <rect x="32" y="28" width="7" height="22" rx="1.5" fill="url(#b)"/>
+  <rect x="42" y="20" width="7" height="30" rx="1.5" fill="url(#b)"/>
+  <rect x="52" y="12" width="7" height="38" rx="1.5" fill="url(#b)"/>
+  <!-- helper (amber) pulling a colleague up (light blue) -->
+  <circle cx="53" cy="4.5" r="3" fill="#f39c12"/>
+  <path d="M55 8.5 53 12M55 8.5 47 15" stroke="#f39c12" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="43" cy="11.5" r="2.8" fill="#6ab1de"/>
+  <path d="M43 15 42 20M43 15 48 15" stroke="#6ab1de" stroke-width="2.8" stroke-linecap="round"/>
+</svg>

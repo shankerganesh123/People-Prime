@@ -1,0 +1,76 @@
+/* ==========================================================================
+   PEOPLE PRIME — THEME LAYER (v1.2)
+   Themes (html[data-theme]):
+     hybrid (default) : dark hero / process / footer + light matte content sections
+     dark             : every section dark, with a calm scrim over the 3D scene
+   Tones (section[data-tone]): "light" | "dark". Hero has no tone (shows the 3D scene).
+   Components never hard-code a theme — they only read the semantic variables below.
+   ========================================================================== */
+
+/* ---------- Dark semantic values (default + .on-dark reset) ---------- */
+:root, .on-dark {
+  --c-text-1: 226 238 250; --c-text-2: 170 190 212; --c-text-3: 124 147 172; --c-line: 140 185 230;
+  --c-brand-100: 207 230 246; --c-brand-200: 159 205 236; --c-brand-300: 106 177 222; --c-brand-400: 58 151 208;
+  --c-accent-text: 255 176 58;
+  --surface-glass: linear-gradient(145deg, rgb(14 61 102 / .42), rgb(4 26 46 / .6));
+  --border-subtle: 1px solid rgb(140 185 230 / .13);
+  --border-strong: 1px solid rgb(106 177 222 / .55);
+  --card-shadow: none;
+}
+.on-dark { color: rgb(var(--c-text-2)); }
+
+/* ---------- Light tone (only in the hybrid theme) ---------- */
+html[data-theme="hybrid"] [data-tone="light"] {
+  --c-text-1: 8 42 71; --c-text-2: 51 74 99; --c-text-3: 90 111 133; --c-line: 14 61 102;
+  --c-brand-100: 14 61 102; --c-brand-200: 20 84 138; --c-brand-300: 26 108 168; --c-brand-400: 29 122 184;
+  --c-accent-text: 168 92 0;
+  --surface-glass: linear-gradient(160deg, #ffffff, rgb(246 250 254));
+  --border-subtle: 1px solid rgb(14 61 102 / .12);
+  --border-strong: 1px solid rgb(26 108 168 / .5);
+  --card-shadow: 0 1px 2px rgb(8 42 71 / .06), 0 16px 36px -16px rgb(8 42 71 / .28);
+  background: rgb(244 248 253);
+}
+html[data-theme="hybrid"] [data-tone="light"].tone-alt { background: rgb(232 242 250); }
+
+/* ---------- Dark tone (and every tone in the dark theme): calm the scene behind text ---------- */
+[data-tone="dark"], html[data-theme="dark"] [data-tone="light"] { background: rgb(var(--c-ink) / .86); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+[data-tone] { color: rgb(var(--c-text-2)); }
+
+/* ---------- Semantic overrides for accent text (amber needs to darken on light) ---------- */
+.eyebrow { color: rgb(var(--c-accent-text)); }
+.eyebrow::after { background: linear-gradient(90deg, rgb(var(--c-accent-text)), transparent); }
+.link-arrow:hover { color: rgb(var(--c-accent-text)); }
+.icon-box-accent, .badge-accent, .bento-big-icon, .ind-pill .i { color: rgb(var(--c-accent-text)); }
+.acc summary::after { color: rgb(var(--c-accent-text)); }
+:where(.card) { box-shadow: var(--card-shadow); }
+
+html[data-theme="hybrid"] [data-tone="light"] .text-grad { background-image: linear-gradient(95deg, rgb(14 61 102), rgb(26 108 168) 55%, rgb(196 112 0)); }
+html[data-theme="hybrid"] [data-tone="light"] .btn-ghost { background: #fff; border-color: rgb(14 61 102 / .25); }
+html[data-theme="hybrid"] [data-tone="light"] .btn-ghost:hover { background: rgb(234 244 251); border-color: rgb(26 108 168); }
+html[data-theme="hybrid"] [data-tone="light"] .card-interactive:hover { box-shadow: 0 22px 50px -18px rgb(8 42 71 / .38); }
+html[data-theme="hybrid"] [data-tone="light"] .step-line { opacity: .6; }
+
+/* Always-dark islands inside light sections */
+.on-dark.card, .on-dark .card { box-shadow: none; }
+.stats-band.on-dark { background: linear-gradient(135deg, rgb(14 61 102), rgb(4 26 46)); border-color: rgb(140 185 230 / .15); box-shadow: 0 24px 60px -24px rgb(8 42 71 / .6); }
+
+/* ---------- Surfaces & misc ---------- */
+footer.stage { background: rgb(var(--c-ink)); }
+html[data-theme="hybrid"] .grain { opacity: .04; }
+
+/* ---------- Theme switch ---------- */
+.theme-btn { width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center; cursor: pointer; color: rgb(226 238 250);
+  background: rgb(255 255 255 / .06); border: 1px solid rgb(140 185 230 / .25); transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-base) var(--ease-out); }
+.theme-btn:hover { background: rgb(255 255 255 / .12); border-color: rgb(255 176 58 / .7); transform: rotate(20deg); }
+.theme-btn svg { width: 1.15rem; height: 1.15rem; }
+
+/* ---------- v1.2 fixes ---------- */
+.nav .nav-inner { background: rgb(var(--c-ink) / .78); }
+.on-dark.card:not(.card-cta) { background: linear-gradient(145deg, rgb(14 61 102), rgb(4 26 46)); border-color: rgb(140 185 230 / .15); }
+
+/* ---------- v1.5: controls and badges on dark islands inside light sections ---------- */
+html[data-theme="hybrid"] [data-tone="light"] .on-dark .btn-ghost { background: rgb(255 255 255 / .08); border-color: rgb(140 185 230 / .45); color: rgb(226 238 250); }
+html[data-theme="hybrid"] [data-tone="light"] .on-dark .btn-ghost:hover { background: rgb(255 255 255 / .16); border-color: rgb(255 176 58); }
+.on-dark .badge { background: rgb(4 26 46 / .62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.on-dark .badge-accent { border-color: rgb(255 176 58 / .55); }
+html[data-theme="hybrid"] [data-tone="light"] .on-dark .text-grad { background-image: linear-gradient(95deg, rgb(var(--c-brand-300)), rgb(var(--c-brand-400)) 55%, rgb(var(--c-accent-400))); }
