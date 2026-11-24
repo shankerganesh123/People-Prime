@@ -18,7 +18,7 @@
 .nav .brand img { height: 2.1rem; }
 .nav .brand-name { font-size: 1.05rem; }
 .nav .brand-tag { display: none; }
-@media (min-width: 1280px) { .nav .brand-tag { display: block; } .nav .brand img { height: 2.4rem; } }
+@media (min-width: 1536px) { .nav .brand-tag { display: block; } .nav .brand img { height: 2.4rem; } }
 .nav #mobile { max-width: 74rem; margin: var(--space-3) auto 0; }
 
 /* ---------- Pointer spotlight ---------- */

@@ -90,7 +90,7 @@ if (still) { const sel = (location.search.match(/[?&]sel=([A-Za-z0-9_-]+)/) || [
     lastY = y;
     if (prog) prog.style.width = (y / Math.max(1, document.body.scrollHeight - innerHeight)) * 100 + '%';
     top?.classList.toggle('show', y > 900);
-    let cur = secs[0];
+    let cur = null;
     secs.forEach((s) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) cur = s; });
     links.forEach((l) => l.classList.toggle('active', cur && l.getAttribute('href') === '#' + cur.id));
   };

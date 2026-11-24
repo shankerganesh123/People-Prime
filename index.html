@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="assets/css/sections.css" />
 <link rel="stylesheet" href="assets/css/sections2.css" />
 <link rel="stylesheet" href="assets/css/sections3.css" />
+<link rel="stylesheet" href="assets/css/hero2.css" />
 <script>try{document.documentElement.dataset.theme=new URLSearchParams(location.search).get("theme")||localStorage.getItem("pp-theme")||"hybrid"}catch(e){document.documentElement.dataset.theme="hybrid"}</script>
 </head>
 <body class="loading">
@@ -36,9 +37,9 @@
       <img src="assets/logo-mark.svg" alt="" />
       <span><span class="brand-name">People Prime</span><span class="brand-tag">Building better workplaces, Together</span></span>
     </a>
-    <nav class="hidden lg:flex items-center gap-7" aria-label="Primary">
+    <nav class="hidden lg:flex items-center gap-5 xl:gap-6" aria-label="Primary">
       <a href="#about" class="nav-link">About Us</a><a href="#services" class="nav-link">Services</a>
-      <a href="#industries" class="nav-link">Industries</a><a href="#books" class="nav-link">Books</a><a href="#videos" class="nav-link">Videos</a><a href="#impact" class="nav-link">Case Studies</a><a href="#contact" class="nav-link">Contact</a>
+      <a href="#industries" class="nav-link">Industries</a><a href="#books" class="nav-link">Books</a><a href="#videos" class="nav-link">Videos</a><a href="#insights" class="nav-link">Insights</a><a href="#impact" class="nav-link">Case Studies</a><a href="#contact" class="nav-link">Contact</a>
     </nav>
     <div class="flex items-center gap-3"><button id="themeBtn" class="theme-btn" aria-label="Switch theme"></button>
     <a href="#contact" class="hidden lg:inline-flex btn btn-primary btn-sm">Talk to an HR Expert <span data-icon="arrow"></span></a></div>
@@ -56,9 +57,8 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
 
-  <div class="container-x grid lg:grid-cols-12 gap-14 items-center w-full flex-1" style="padding-top: calc(var(--nav-h) + clamp(0rem, 3vw, 2.5rem)); padding-bottom: 3.5rem">
+  <div class="container-x grid lg:grid-cols-12 gap-14 lg:gap-8 items-center w-full flex-1" style="padding-top: calc(var(--nav-h) + clamp(1rem, 3vw, 2.5rem)); padding-bottom: 4rem">
     <div class="lg:col-span-7 reveal in" id="heroText">
-      <div class="lg:hidden" style="height:min(14.5rem,30vh)" aria-hidden="true"></div>
       <a href="#books" class="announce reveal" style="--d:.1s">
         <span class="badge badge-accent">New</span><span>POSH at the Workplace — now on Amazon</span><span class="announce-arrow" data-icon="arrow"></span>
       </a>
@@ -72,17 +72,27 @@
         <a href="#contact" class="btn btn-primary magnetic">Talk to an HR Expert <span data-icon="arrow"></span></a>
         <a href="#videos" class="btn btn-ghost"><span class="play-dot" aria-hidden="true"></span>Watch our story</a>
       </div>
-      <div class="mt-12 flex flex-wrap items-center gap-x-8 gap-y-5 reveal" style="--d:1.2s">
-        <div class="flex items-center gap-4">
-          <div class="avatars" aria-hidden="true"><span>A</span><span>R</span><span>S</span><span>+</span></div>
-          <div class="caption leading-snug"><span class="text-text-1 font-semibold text-sm"><span data-count="450" data-suffix="+">0</span></span><br>organizations trust us</div>
-        </div>
-        <div class="hidden sm:block w-px h-10 bg-line/15" aria-hidden="true"></div>
-        <div class="flex items-center gap-3"><span class="stat-num"><span data-count="18">0</span>+</span><span class="caption leading-snug">years of<br>HR expertise</span></div>
-      </div>
+      <ul class="hero-points reveal" style="--d:1.2s">
+        <li><span data-icon="shield"></span>Compliance-focused</li>
+        <li><span data-icon="handshake"></span>End-to-end HR solutions</li>
+        <li><span data-icon="calendar"></span><b><span data-count="18">0</span>+</b>&nbsp;years of expertise</li>
+      </ul>
     </div>
 
-    <div class="lg:col-span-5 hidden lg:block reveal relative h-[30rem]" style="--d:1s" id="heroCard" aria-hidden="true"></div>
+    <div class="lg:col-span-5 reveal" style="--d:.5s" id="heroCard">
+      <div class="hero-art" id="heroArt">
+        <svg class="ha-swoosh" viewBox="0 0 400 480" aria-hidden="true"><defs><linearGradient id="sw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc566"/><stop offset="1" stop-color="#f39c12"/></linearGradient></defs>
+          <path d="M40 330C-8 190 54 56 214 14 152 58 96 158 104 272c8 86 96 134 200 128-96 54-232 22-264-70Z" fill="url(#sw)"/></svg>
+        <span class="ha-orb" aria-hidden="true"></span>
+        <figure class="ha-main" style="--k:8"><img src="assets/img/hero-main.jpg" alt="A confident HR professional smiling in a bright modern office" fetchpriority="high" /><span class="ha-tint"></span></figure>
+        <figure class="ha-sub" style="--k:20"><img src="assets/img/hero-sub.jpg" alt="Two colleagues in a one-to-one conversation" loading="eager" /></figure>
+        <div class="ha-card ha-c1" style="--k:30"><div class="avatars" aria-hidden="true"><span>A</span><span>R</span><span>S</span><span>+</span></div><div><b data-count="450" data-suffix="+">0</b><small>organizations trust us</small></div></div>
+        <div class="ha-card ha-c2" style="--k:36"><span class="ha-ic" data-icon="shield"></span><div><b>POSH compliant</b><small>Audit passed · today</small></div></div>
+        <div class="ha-card ha-c3" style="--k:16"><div><b>Talent pipeline</b><small>Hiring &amp; onboarding</small></div>
+          <svg viewBox="0 0 70 40" class="ha-bars" aria-hidden="true"><rect x="2" y="26" width="9" height="12" rx="2"/><rect x="16" y="20" width="9" height="18" rx="2"/><rect x="30" y="14" width="9" height="24" rx="2"/><rect x="44" y="8" width="9" height="30" rx="2"/><rect class="hot" x="58" y="1" width="9" height="37" rx="2"/></svg></div>
+        <span class="ha-dots" aria-hidden="true"></span>
+      </div>
+    </div>
   </div>
 
   <div class="hero-strip" aria-label="Industries we serve">
@@ -320,16 +330,26 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="stage border-t border-line/10 bg-ink/75 backdrop-blur-md">
-  <div class="container-x py-10 flex flex-wrap items-center justify-between gap-6">
-    <a href="#home" class="brand"><img src="assets/logo-mark.svg" alt="" /><span><span class="brand-name">People Prime</span><span class="brand-tag">Building better workplaces, Together</span></span></a>
-    <nav class="flex flex-wrap gap-6 caption" aria-label="Footer">
-      <a href="#home" class="hover:text-white">Home</a><a href="#about" class="hover:text-white">About Us</a><a href="#services" class="hover:text-white">Services</a>
-      <a href="#industries" class="hover:text-white">Industries</a><a href="#books" class="hover:text-white">Books</a><a href="#videos" class="hover:text-white">Videos</a><a href="#insights" class="hover:text-white">Insights</a><a href="#impact" class="hover:text-white">Case Studies</a><a href="#contact" class="hover:text-white">Contact</a>
-      <a href="design-system.html" class="hover:text-white text-accent-text">Design System</a></nav>
+<footer id="footer" class="stage site-footer">
+  <div class="container-x">
+    <div class="foot-cta">
+      <h2 class="hd-1">Let's build a better workplace, <span class="text-grad">together.</span></h2>
+      <a href="#contact" class="btn btn-primary">Talk to an HR Expert <span data-icon="arrow"></span></a>
+    </div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#home" class="brand"><img src="assets/logo-mark.svg" alt="" /><span><span class="brand-name">People Prime</span><span class="brand-tag">Building better workplaces, Together</span></span></a>
+        <p class="body-sm mt-4 max-w-xs">Your HR partner for a stronger tomorrow — compliance, talent and people operations for organizations across India.</p>
+        <div class="foot-social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="YouTube"><span class="play-dot"></span></a><a href="#" aria-label="X">𝕏</a></div>
+      </div>
+      <nav aria-label="Services"><h4>Services</h4><a href="#services">POSH Compliance</a><a href="#services">Talent Acquisition</a><a href="#services">Payroll &amp; HR Ops</a><a href="#services">Talent Development</a><a href="#services">Legal &amp; Compliance</a></nav>
+      <nav aria-label="Company"><h4>Company</h4><a href="#about">About Us</a><a href="#industries">Industries</a><a href="#approach">How We Work</a><a href="#impact">Case Studies</a><a href="#faq">FAQ</a></nav>
+      <nav aria-label="Resources"><h4>Resources</h4><a href="#books">Books</a><a href="#videos">Videos</a><a href="#insights">Insights</a><a href="design-system.html">Design System</a></nav>
+      <div><h4>Contact</h4><a href="mailto:hello@peopleprime.in">hello@peopleprime.in</a><span class="body-sm">India</span><a href="#contact" class="link-arrow mt-3">Request a call back <span data-icon="arrow"></span></a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2025 People Prime. All rights reserved.</span><span>Terms &amp; Conditions &nbsp;|&nbsp; Privacy Policy</span></div>
   </div>
-  <div class="container-x border-t border-line/10 py-4 flex flex-wrap justify-between caption">
-    <span>© 2025 People Prime. All rights reserved.</span><span>Terms &amp; Conditions &nbsp;|&nbsp; Privacy Policy</span></div>
+  <div class="foot-word" aria-hidden="true">People Prime</div>
 </footer>
 
 <dialog id="videoModal" class="vmodal" aria-label="Video player"><button class="vmodal-close" data-close aria-label="Close video">&#10005;</button><div id="videoFrame" class="vmodal-frame"></div></dialog>
@@ -337,6 +357,7 @@
 <script src="assets/js/icons.js"></script>
 <script src="assets/js/ui.js"></script>
 <script src="assets/js/content.js"></script>
+<script src="assets/js/hero.js"></script>
 <script src="assets/js/theme.js"></script>
 <script src="assets/js/scene.js"></script>
 </body>
